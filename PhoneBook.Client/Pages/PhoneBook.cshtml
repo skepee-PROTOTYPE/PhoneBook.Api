@@ -1,0 +1,29 @@
+﻿@page
+@model PhoneBook.Client.Pages.PhoneBookModel
+@{
+    ViewData["Title"] = "PhoneBook";
+}
+
+<script src="~/wwwroot/js/bootstrap.js"></script>
+<link href="~/wwwroot/css/bootstrap.css" rel="stylesheet" />
+
+<h1>Your addresses</h1>
+
+<br>
+@if (Model.PhoneNumbers.Any())
+{
+<ul class="list-group">
+    @foreach (PhoneBookNumber item in Model.PhoneNumbers.OrderBy(x => x.FirstName))
+    {
+        <li class="list-group-item list-group-item-warning"><strong>First Name: </strong>@item.FirstName</li>
+        <li class="list-group-item list-group-item-warning"><strong>Last Name: </strong>@item.LastName</li>
+        <li class="list-group-item list-group-item-info"><strong>Home: </strong>@item.HomeNumber</li>
+        <li class="list-group-item list-group-item-info"><strong>Work: </strong>@item.WorkNumber</li>
+        <li class="list-group-item list-group-item-info"><strong>Mobile: </strong>@item.PhoneNumber</li>
+        <li class="divider"></li>
+    }
+</ul>
+    <br>
+
+}
+
