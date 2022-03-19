@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/skepee/PhoneBook.Api/tree/master.svg?style=svg)](https://circleci.com/gh/skepee/PhoneBook.Api/tree/master)
+
 # Phone Book API
 
 API to work with phone book numbers with read, add, delete, update operations.
