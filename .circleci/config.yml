@@ -6,8 +6,6 @@ executors:
         auth:
           # ensure you have first added these secrets
           # visit app.circleci.com/settings/project/github/skepee/PhoneBook.Api/environment-variables
-          username: 64f80dc2fd7b
-          password: Marcello1975
 jobs:
   phonebookdeploy:
 
