@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  phonebook.idp:
+    image: ${DOCKER_REGISTRY-}phonebookidp
+    build:
+      context: .
+      dockerfile: MyIdentityServer.IDP/Dockerfile
+
+  phonebook.api:
+    image: ${DOCKER_REGISTRY-}phonebookapi
+    build:
+      context: .
+      dockerfile: PhoneBook.Api/Dockerfile
+
+  phonebook.client:
+    image: ${DOCKER_REGISTRY-}phonebookclient
+    build:
+      context: .
+      dockerfile: PhoneBook.Client/Dockerfile

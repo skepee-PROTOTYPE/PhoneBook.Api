@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30204.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBook.Api", "PhoneBook.Api\PhoneBook.Api.csproj", "{CA90AFC4-D969-46E8-8F11-F28212929D47}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneBook.Client", "PhoneBook.Client\PhoneBook.Client.csproj", "{B129FF53-6CF4-4097-B0BB-B8BAE6611BA0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyIdentity", "MyIdentityServer.IDP\MyIdentity.csproj", "{A1A9BB58-5A4C-43BC-9EDC-DC8252798598}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{DD6F94E7-EF54-4FDB-B798-3B2DAF07A39D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{A1A9BB58-5A4C-43BC-9EDC-DC8252798598}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1A9BB58-5A4C-43BC-9EDC-DC8252798598}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1A9BB58-5A4C-43BC-9EDC-DC8252798598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD6F94E7-EF54-4FDB-B798-3B2DAF07A39D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD6F94E7-EF54-4FDB-B798-3B2DAF07A39D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD6F94E7-EF54-4FDB-B798-3B2DAF07A39D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD6F94E7-EF54-4FDB-B798-3B2DAF07A39D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
