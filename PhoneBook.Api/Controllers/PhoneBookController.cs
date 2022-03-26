@@ -12,7 +12,7 @@ using PhoneBook.Api.Services;
 
 namespace PhoneBook.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]

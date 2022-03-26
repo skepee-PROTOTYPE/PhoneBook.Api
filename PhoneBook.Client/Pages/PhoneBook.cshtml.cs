@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace PhoneBook.Client.Pages
 {
-    [Authorize]
+    //[Authorize]
     public class PhoneBookModel : PageModel
     {
         private readonly IHttpClientFactory _httpClientFactory;

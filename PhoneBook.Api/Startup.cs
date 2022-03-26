@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using PhoneBook.Api.Context;
 using PhoneBook.Api.Services;
 
@@ -30,17 +31,20 @@ namespace PhoneBook.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Phonebook.API", Version = "v1" });
+            });
 
-            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-                          .AddIdentityServerAuthentication(options =>
-                          {
-                              options.Authority = "https://localhost:5201";
-                              options.ApiName = "phonebookapi";
-                              options.ApiSecret = "apisecret";
-                          });
+            //services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+            //              .AddIdentityServerAuthentication(options =>
+            //              {
+            //                  options.Authority = "https://localhost:5201";
+            //                  options.ApiName = "phonebookapi";
+            //                  options.ApiSecret = "apisecret";
+            //              });
 
-
-            services.AddDbContext<PhoneBookContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<PhoneBookContext>(options => options.UseSqlServer(Configuration.GetConnectionString("local")));
             services.AddScoped<IPhoneBookRepository, PhoneBookRepository>();
         }
 
@@ -53,6 +57,12 @@ namespace PhoneBook.Api
             }
 
             app.UseHttpsRedirection();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "PhoneBook");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseRouting();
 

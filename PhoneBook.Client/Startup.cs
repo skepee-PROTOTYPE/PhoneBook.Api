@@ -13,10 +13,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using System.IO;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+//using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authentication;
 using IdentityModel;
-using PhoneBook.Client.HttpHandlers;
+//using PhoneBook.Client.HttpHandlers;
 
 namespace PhoneBook.Client
 {
@@ -34,48 +34,49 @@ namespace PhoneBook.Client
         {
             services.AddRazorPages();
             services.AddHttpContextAccessor();
-            services.AddTransient<BearerTokenHandler>();
-            services.AddAuthorization();
+            //services.AddTransient<BearerTokenHandler>();
+            //services.AddAuthorization();
 
             services.AddHttpClient("APIClient", client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44349/");
+                //44349
+                client.BaseAddress = new Uri("https://localhost:5001/");
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-            }).AddHttpMessageHandler<BearerTokenHandler>(); 
+            });//.AddHttpMessageHandler<BearerTokenHandler>();
 
-            services.AddHttpClient("IDPClient", client =>
-            {
-                client.BaseAddress = new Uri("https://localhost:5201/");
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-            });
+            //services.AddHttpClient("IDPClient", client =>
+            //{
+            //    client.BaseAddress = new Uri("https://localhost:5201/");
+            //    client.DefaultRequestHeaders.Clear();
+            //    client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
+            //});
 
-            services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-            })
-            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
-            .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
-            {
-                options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.Authority = "https://localhost:5201/";
-                options.ClientId = "phonebookclient";
-                options.ResponseType = "code";
-                options.UsePkce = true;
-                options.Scope.Add("openid");
-                options.Scope.Add("profile");
-                options.Scope.Add("phonebookapi");
-                options.SaveTokens = true;
-                options.ClientSecret = "miosecret";
-                options.GetClaimsFromUserInfoEndpoint = true;
-                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                {
-                    NameClaimType = JwtClaimTypes.GivenName,
-                    RoleClaimType = JwtClaimTypes.Role
-                };
-            });
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+            //})
+            //.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+            //.AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
+            //{
+            //    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            //    options.Authority = "https://localhost:5201/";
+            //    options.ClientId = "phonebookclient";
+            //    options.ResponseType = "code";
+            //    options.UsePkce = true;
+            //    options.Scope.Add("openid");
+            //    options.Scope.Add("profile");
+            //    options.Scope.Add("phonebookapi");
+            //    options.SaveTokens = true;
+            //    options.ClientSecret = "miosecret";
+            //    options.GetClaimsFromUserInfoEndpoint = true;
+            //    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+            //    {
+            //        NameClaimType = JwtClaimTypes.GivenName,
+            //        RoleClaimType = JwtClaimTypes.Role
+            //    };
+            //});
 
         }
 
@@ -98,7 +99,7 @@ namespace PhoneBook.Client
 
             app.UseRouting();
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
