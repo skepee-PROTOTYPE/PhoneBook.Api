@@ -15,7 +15,8 @@ using System.IO;
 using Microsoft.AspNetCore.Authentication.Cookies;
 //using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authentication;
-using IdentityModel;
+//using IdentityModel;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 //using PhoneBook.Client.HttpHandlers;
 
 namespace PhoneBook.Client
@@ -35,7 +36,7 @@ namespace PhoneBook.Client
             services.AddRazorPages();
             services.AddHttpContextAccessor();
             //services.AddTransient<BearerTokenHandler>();
-            //services.AddAuthorization();
+            services.AddAuthorization();
 
             services.AddHttpClient("APIClient", client =>
             {
@@ -99,7 +100,7 @@ namespace PhoneBook.Client
 
             app.UseRouting();
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
