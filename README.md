@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/skepee/PhoneBook.Api/tree/master.svg?style=svg)](https://circleci.com/gh/skepee/PhoneBook.Api/tree/master)
+[![CircleCI](https://circleci.com/gh/skepee/PhoneBook.Api/tree/master.svg?style=shield)](https://circleci.com/gh/skepee/PhoneBook.Api/tree/master)
 
 # Phone Book API
 
